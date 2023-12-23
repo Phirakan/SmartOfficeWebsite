@@ -1,0 +1,123 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+   
+}
+.custom-container {
+    flex: 1;
+}
+
+header {
+    background-color: #2ecc71;
+    padding: 1em 0;
+    color: white;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.about {
+    padding: 2em;
+    text-align: center;
+}
+
+.contact {
+    background-color: #2ecc71;
+    color: white;
+    padding: 2em;
+    text-align: center;
+}
+
+footer {
+    background-color: #2ecc71;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer span {
+    font-weight: bold;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+ .carousel-item img {
+        height: 200px; 
+        object-fit: cover; 
+    }
+   
+.dashboard-icon {
+    width: 30px; 
+    height: 30px; 
+}
+
+.custom-container {
+    border: 1px solid #ddd; /* เพิ่มขอบ */
+    border-radius: 10px; /* ปรับขนาดขอบ */
+    padding: 20px; /* ระยะห่างภายใน container */
+    margin-top: 20px; /* ระยะห่างด้านบน */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}
+
+.custom-container h2 {
+    color: #007BFF; /* สีของตัวหนังสือ */
+}
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Social Links */
+@media (max-width: 576px) {
+    .social-links a {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+.about img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px; /* ระยะห่างด้านบน */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}

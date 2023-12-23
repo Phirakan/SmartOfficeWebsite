@@ -1,0 +1,118 @@
+/* form.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f0;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    width: 500px; 
+    margin: 0 auto; 
+    text-align: center; 
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.dashboard-icon {
+    width: 30px; 
+    height: 30px; 
+}
+
+footer {
+    background-color: #2ecc71;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer span {
+    font-weight: bold;
+}
+
+btn btn-primary {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* Responsive Styles */
+@media (max-width: 600px) {
+    form {
+        max-width: 100%;
+    }
+
+    h2 {
+        width: 100%;
+    }
+}
