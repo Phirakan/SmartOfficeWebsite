@@ -9,7 +9,7 @@
 
     $sql = "SELECT user.*, room.room_name 
             FROM user 
-            LEFT JOIN room ON user.id = room.user_id";
+            LEFT JOIN room ON user.id = room.user_id ORDER BY user.id ASC";
     $result = mysqli_query($conn, $sql);
 
 ?>
