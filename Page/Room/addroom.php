@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../config/connectdb.php');
+include('../../config/connectdb.php');
 
 
 if (!isset($_SESSION['username'])) {
@@ -16,7 +16,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../../css/profile.css">
     <title>Add Room Page</title>
 </head>
 <body>
@@ -72,16 +72,16 @@ if(isset($_SESSION["username"])) {
     <h1>Add Room Page</h1>
 
     <!-- ฟอร์มสำหรับเพิ่มข้อมูลห้อง -->
-    <form action="../service/add_room_process.php" method="POST">
+    <form action="../../service/add_room_process.php" method="POST">
     <div class="mb-3">
         <label for="room_name">Room Name:</label><br>
-        <input type="text" id="room_name" name="room_name"><br>
+        <input type="text" id="room_name" name="room_name" required><br>
         </div>
         <div class="mb-3">
         <label for="user_id">User ID:</label><br>
-        <input type="text" id="user_id" name="user_id"><br>
+        <input type="text" id="user_id" name="user_id" required><br>
         <br>
-        <a href="home.php">Back to Home</a>
+        <a href="../home.php">Back to Home</a>
         <br>
         <button type="submit" value="Add Room" class="btn btn-primary">Add room</button>
         </div>
