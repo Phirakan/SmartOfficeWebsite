@@ -1,3 +1,8 @@
+<?php 
+
+session_start(); 
+include('../config/connectdb.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,41 +11,62 @@
     <title>Smart Office Technology</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/home.css">
+
+    <!-- Unicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Smart Green Office</a>
+    <a class="navbar-brand" href="home.php">Smart Green Office</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link active" href="authentication/admin.php">Profile</a>
+                   
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="addroom.php">Add Room</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Solutions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+            
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">
+                    <a class="nav-link" href="authentication/dashboard.php">
                         <img src="../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
                     </a>
                 </li>
 
             </ul>
+
+            
         </div>
     </div>
+    
+    <?php
+if(isset($_SESSION["username"])) {   
+    echo '<li class="nav-item dropdown">';
+    echo '<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">';
+    echo $_SESSION["username"];
+    echo '</a>';
+    echo '<ul class="dropdown-menu" aria-labelledby="userDropdown">';
+    echo '<li><a class="dropdown-item" href="authentication/profile.php">แสดงโปรไฟล์</a></li>'; // Add your dropdown options here
+    echo '<li><a class="dropdown-item" href="authentication/dashboard.php">ไปยังหน้าแดชบอร์ด</a></li>';
+    echo '<li><hr class="dropdown-divider"></li>';
+    echo '<a href="../service/logout.php" style="color: black;">Logout</a>';
+    echo '</ul>';
+    echo '</li>';
+    echo '<button class="button" id="form-open" onclick="Logout()">Logout</button>'; 
+} else {
+    echo '<button class="button" id="form-open" onclick="redirectToLogin()">Login</button>';
+}
+?>
 </nav>
+
 
 <section class="about d-flex justify-content-center">
     <div>
@@ -69,14 +95,7 @@
           <img src="../upload/Smart Green Office Banner 3.png" class="w-100 d-block" alt="Third slide" height="200px;">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      
     </div>
   </div>
 
@@ -124,6 +143,22 @@
     
 </footer>
 
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+<script>
+function redirectToLogin() {
+  window.location.href = "Login.php";
+}
+</script>
+
+<script>
+function Logout() {
+            window.location.href = "../service/logout.php";
+        }
+</script>
+
 </body>
 </html>
