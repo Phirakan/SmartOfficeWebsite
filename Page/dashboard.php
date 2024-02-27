@@ -66,7 +66,6 @@ if(isset($_SESSION["username"])) {
     echo $_SESSION["username"];
     echo '</a>';
     echo '<ul class="dropdown-menu" aria-labelledby="userDropdown">';
-    echo '<li><a class="dropdown-item" href="profile.php">แสดงโปรไฟล์</a></li>'; 
     echo '<li><a class="dropdown-item" href="dashboard.php">ไปยังหน้าแดชบอร์ด</a></li>';
     echo '<li><hr class="dropdown-divider"></li>';
     echo '<a href="../service/logout.php" style="color: black;">Logout</a>';
