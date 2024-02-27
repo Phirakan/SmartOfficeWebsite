@@ -26,17 +26,17 @@ include('../config/connectdb.php');
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="authentication/admin.php">Profile</a>
+                    <a class="nav-link active" href="admin.php">Profile</a>
                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addroom.php">Add Room</a>
+                    <a class="nav-link" href="Room/addroom.php">Add Room</a>
                 </li>
             
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="authentication/dashboard.php">
+                    <a class="nav-link" href="dashboard.php">
                         <img src="../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
                     </a>
                 </li>
@@ -54,7 +54,6 @@ if(isset($_SESSION["username"])) {
     echo $_SESSION["username"];
     echo '</a>';
     echo '<ul class="dropdown-menu" aria-labelledby="userDropdown">';
-    echo '<li><a class="dropdown-item" href="profile.php">แสดงโปรไฟล์</a></li>'; // Add your dropdown options here
     echo '<li><a class="dropdown-item" href="dashboard.php">ไปยังหน้าแดชบอร์ด</a></li>';
     echo '<li><hr class="dropdown-divider"></li>';
     echo '<a href="../service/logout.php" style="color: black;">Logout</a>';

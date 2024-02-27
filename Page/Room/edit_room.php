@@ -7,6 +7,10 @@ if (!isset($_SESSION['username'])) {
     header('location: ../home.php');
     exit();
 }
+if ($_SESSION['role'] != 1) {
+    header('location: ../home.php');
+     exit();
+ }
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     $_SESSION['error'] = "Room ID is missing in the URL";

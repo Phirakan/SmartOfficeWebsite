@@ -7,6 +7,10 @@ if (!isset($_SESSION['username'])) {
     header('location: home.php');
     exit();
 }
+if ($_SESSION['role'] != 1) {
+    header('location: ../home.php');
+     exit();
+ }
 
 $sql = "SELECT device.*, room.room_name 
         FROM device 

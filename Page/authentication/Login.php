@@ -29,10 +29,12 @@ session_start(); // ตรวจสอบ session ทุกรายการ
                 </div>
                 <span>or use your email for registeration</span>
                 <input type="text" id="username" placeholder="Username" name="username" required>
-                <input type="password" id="password" placeholder="Password" name="password" required>
-                <input type="password" id="c_password" placeholder="confirm Password" name="c_password" required>
-                <input type="email" id="email" placeholder="Email" name="email" required>
-                <input type="tel" id="tel" placeholder="PhoneNumber" name="tel" required>
+            <input type="password" id="password" placeholder="Password" name="password" required>
+            <input type="password" id="c_password" placeholder="Confirm Password" name="c_password" required>
+            <input type="f_name" id="f_name" placeholder="First Name" name="f_name" required>
+            <input type="l_name" id="l_name" placeholder="Last Name" name="l_name" required>
+            <input type="email" id="email" placeholder="Email" name="email" required>
+            <input type="tel" id="tel" placeholder="PhoneNumber" name="tel" required>
                 <button class="button" type="submit" name="reg_user">Register</button>
             </form>
              </form>

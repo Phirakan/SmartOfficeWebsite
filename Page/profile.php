@@ -1,13 +1,15 @@
 <?php
 // เรียกใช้ session_start() ที่ต้องใช้ในทุกหน้าที่ใช้ session
 session_start();
-include('../../config/connectdb.php');
+include('../config/connectdb.php');
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['error'] = "You must log in first";
     header('location: ../home.php');
     exit();
 }
+
+
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Error: ID parameter is missing in the URL";
     exit();
@@ -22,13 +24,18 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
-    $username = $row['username'];
-    $f_name = $row['f_name'];
-    $l_name = $row['l_name'];
-    $email = $row['email'];
-    $tel = $row['tel'];
-    $img_path = $row['img'];
-    $room_name = $row['room_name']; 
+    if ($row['role'] == 1) {
+        $username = $row['username'];
+        $f_name = $row['f_name'];
+        $l_name = $row['l_name'];
+        $email = $row['email'];
+        $tel = $row['tel'];
+        $img_path = $row['img'];
+        $room_name = $row['room_name'];
+    } else {
+        echo "You do not have permission to access this page";
+        exit();
+    }
 } else {
     echo "Error retrieving user data";
     exit();
@@ -43,7 +50,7 @@ if (mysqli_num_rows($result) == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="../../css/profile.css" rel="stylesheet">
+    <link href="../css/profile.css" rel="stylesheet">
 
     <title><?php echo $_SESSION['username']; ?> Profile</title>
 </head>
@@ -62,7 +69,7 @@ if (mysqli_num_rows($result) == 1) {
                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../addroom.php">Add Room</a>
+                    <a class="nav-link" href="/Room/addroom.php">Add Room</a>
                 </li>
             
             </ul>
@@ -105,7 +112,7 @@ if(isset($_SESSION["username"])) {
             <img src="<?php echo $img_path; ?>" alt="User Image" width="400">
         <?php else : ?>
            
-            <img src="../../upload/profile.png" alt="Default Image" width="400">
+            <img src="../upload/profile.png" alt="Default Image" width="400">
         <?php endif; ?>
     
 
@@ -127,7 +134,7 @@ if(isset($_SESSION["username"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>
         function Logout() {
-            window.location.href = "../../service/logout.php";
+            window.location.href = "../service/logout.php";
         }
     </script>
 </body>

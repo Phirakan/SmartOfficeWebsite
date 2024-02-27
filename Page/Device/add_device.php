@@ -7,6 +7,10 @@ if (!isset($_SESSION['username'])) {
     header('location: ../home.php');
     exit();
 }
+if ($_SESSION['role'] != 1) {
+    header('location: ../home.php');
+     exit();
+ }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $room_id = $_POST['room_id'];

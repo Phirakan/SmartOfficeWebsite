@@ -1,16 +1,35 @@
 <?php 
     session_start(); 
-    include('../../config/connectdb.php');
+    include('../config/connectdb.php');
 
     if (!isset($_SESSION['username'] )) {
         $_SESSION['error'] = "You must log in first";
-        header('location: ../home.php');
+        header('location: home.php');
     }
 
     $sql = "SELECT user.*, room.room_name 
             FROM user 
             LEFT JOIN room ON user.id = room.user_id ORDER BY user.id ASC";
     $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        if ($row['role'] == 1) {
+            $username = $row['username'];
+            $f_name = $row['f_name'];
+            $l_name = $row['l_name'];
+            $email = $row['email'];
+            $tel = $row['tel'];
+            $img_path = $row['img'];
+            $room_name = $row['room_name'];
+        } else {
+            echo "You do not have permission to access this page";
+            exit();
+        }
+    } else {
+        header('location: home.php');
+        exit();
+    }
 
 ?>
 
@@ -20,7 +39,7 @@
     <meta charset="utf-8">
     <title>หน้าหลัก</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="../../css/home.css" rel="stylesheet">
+    <link href="../css/home.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,14 +55,14 @@
                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../addroom.php">Add Room</a>
+                    <a class="nav-link" href="Room/addroom.php">Add Room</a>
                 </li>
             
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="dashboard.php">
-                        <img src="../../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
+                        <img src="../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
                     </a>
                 </li>
 
@@ -79,7 +98,7 @@ if(isset($_SESSION["username"])) {
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">User ID</th>
                     <th scope="col">ห้อง</th>
                     <th scope="col">เจ้าของ</th>
                     <th scope="col">username</th>
@@ -107,7 +126,7 @@ if(isset($_SESSION["username"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>
         function Logout() {
-            window.location.href = "../../service/logout.php";
+            window.location.href = "../service/logout.php";
         }
     </script>
 </body>

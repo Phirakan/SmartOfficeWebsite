@@ -9,6 +9,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != 1) {
+        header('location: ../home.php');
+         exit();
+     }
+
     // ตรวจสอบว่ามีการระบุ ID ของห้องใน URL หรือไม่
     if (!isset($_GET['id']) || empty($_GET['id'])) {
         $_SESSION['error'] = "Room ID is missing in the URL";

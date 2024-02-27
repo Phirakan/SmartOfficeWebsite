@@ -11,6 +11,11 @@
     $sql = "SELECT room.*,user.f_name FROM room LEFT JOIN user ON room.room_id = user.id";
     $result = mysqli_query($conn, $sql);
 
+    if ($_SESSION['role'] != 1) {
+        header('location: ../home.php');
+         exit();
+     }
+
 ?>
 
 <!doctype html>
