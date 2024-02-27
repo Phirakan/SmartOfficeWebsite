@@ -1,6 +1,11 @@
 <?php
 include('../../config/connectdb.php');
 session_start(); // ตรวจสอบ session ทุกรายการ
+
+if ($_SESSION['role'] != 1) {
+    header('location: ../home.php');
+     exit();
+ }
 ?>
 
 <!DOCTYPE html>
