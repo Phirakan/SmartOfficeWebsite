@@ -26,13 +26,13 @@ include('../config/connectdb.php');
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="admin.php">Profile</a> 
+                    <a class="nav-link active" href="admin.php">Manage Profile</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Room/manageroom.php">Add Room</a>
+                    <a class="nav-link" href="Room/manageroom.php">Manage Room</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Room/addroom.php">Add Room</a>
+                    <a class="nav-link" href="Device/manageDevice.php">Manage Device</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -43,8 +43,6 @@ include('../config/connectdb.php');
                 </li>
 
             </ul>
-
-            
         </div>
     </div>
     
@@ -129,9 +127,6 @@ if(isset($_SESSION["username"])) {
             <h2>Ai For Your Office</h2>
             <p>We have intelligent AI to monitor various environments and make your daily life more comfortable.</p>
         </div>
-
-       
-       
     </div>
 </div>
 

@@ -67,13 +67,14 @@ if (mysqli_num_rows($result) == 1) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="admin.php">Profile</a>
-                   
+                    <a class="nav-link active" href="admin.php">Manage Profile</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Room/addroom.php">Add Room</a>
+                    <a class="nav-link" href="Room/manageroom.php">Manage Room</a>
                 </li>
-            
+                <li class="nav-item">
+                    <a class="nav-link" href="Device/manageDevice.php">Manage Device</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -83,8 +84,6 @@ if (mysqli_num_rows($result) == 1) {
                 </li>
 
             </ul>
-
-            
         </div>
     </div>
     

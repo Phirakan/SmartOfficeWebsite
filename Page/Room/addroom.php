@@ -32,20 +32,21 @@ if (mysqli_num_rows($result) == 0) {
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-    <a class="navbar-brand" href="home.php">Smart Green Office</a>
+    <a class="navbar-brand" href="../home.php">Smart Green Office</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="../admin.php">Profile</a>
-                   
+                    <a class="nav-link active" href="../admin.php">Manage Profile</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addroom.php">Add Room</a>
+                    <a class="nav-link" href="manageroom.php">Manage Room</a>
                 </li>
-            
+                <li class="nav-item">
+                    <a class="nav-link" href="../Device/manageDevice.php">Manage Device</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -55,8 +56,6 @@ if (mysqli_num_rows($result) == 0) {
                 </li>
 
             </ul>
-
-            
         </div>
     </div>
     
@@ -91,9 +90,11 @@ if(isset($_SESSION["username"])) {
         <label for="user_id">User ID:</label><br>
         <input type="text" id="user_id" name="user_id" required><br>
         <br>
+        <button type="submit" value="Add Room" class="btn btn-primary">Add room</button>
+        <br>
+        <br>
         <a href="../home.php">Back to Home</a>
         <br>
-        <button type="submit" value="Add Room" class="btn btn-primary">Add room</button>
         </div>
 
         

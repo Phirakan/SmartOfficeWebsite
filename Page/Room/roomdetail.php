@@ -52,47 +52,51 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-    <a class="navbar-brand" href="home.php">Smart Green Office</a>
+    <a class="navbar-brand" href="../home.php">Smart Green Office</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="manage_room.php">Manage Room</a>
+                    <a class="nav-link active" href="../admin.php">Manage Profile</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addroom.php">Add Room</a>
+                    <a class="nav-link" href="manageroom.php">Manage Room</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Device/manageDevice.php">Manage Device</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.php">
+                    <a class="nav-link" href="../dashboard.php">
                         <img src="../../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>
     
     <?php
-    if(isset($_SESSION["username"])) {   
-        echo '<li class="nav-item dropdown">';
-        echo '<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">';
-        echo $_SESSION["username"];
-        echo '</a>';
-        echo '<ul class="dropdown-menu" aria-labelledby="userDropdown">';
-        echo '<li><a class="dropdown-item" href="authentication/profile.php">View Profile</a></li>'; // Add your dropdown options here
-        echo '<li><a class="dropdown-item" href="authentication/dashboard.php">Go to Dashboard</a></li>';
-        echo '<li><hr class="dropdown-divider"></li>';
-        echo '<a href="../service/logout.php" style="color: black;">Logout</a>';
-        echo '</ul>';
-        echo '</li>';
-        echo '<button class="button" id="form-open" onclick="Logout()">Logout</button>'; 
-    } else {
-        echo '<button class="button" id="form-open" onclick="redirectToLogin()">Login</button>';
-    }
-    ?>
+if(isset($_SESSION["username"])) {   
+    echo '<li class="nav-item dropdown">';
+    echo '<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">';
+    echo $_SESSION["username"];
+    echo '</a>';
+    echo '<ul class="dropdown-menu" aria-labelledby="userDropdown">';
+    echo '<li><a class="dropdown-item" href="../profile.php">แสดงโปรไฟล์</a></li>'; // Add your dropdown options here
+    echo '<li><a class="dropdown-item" href="../dashboard.php">ไปยังหน้าแดชบอร์ด</a></li>';
+    echo '<li><hr class="dropdown-divider"></li>';
+    echo '<a href="../service/logout.php" style="color: black;">Logout</a>';
+    echo '</ul>';
+    echo '</li>';
+    echo '<button class="button" id="form-open" onclick="Logout()">Logout</button>'; 
+} else {
+    echo '<button class="button" id="form-open" onclick="redirectToLogin()">Login</button>';
+}
+?>
 </nav>
 
 <div class="container-fluid">

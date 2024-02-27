@@ -57,7 +57,51 @@ if (mysqli_num_rows($result) == 1) {
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Navbar content -->
+    <div class="container-fluid">
+    <a class="navbar-brand" href="home.php">Smart Green Office</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="admin.php">Manage Profile</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Room/manageroom.php">Manage Room</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Device/manageDevice.php">Manage Device</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.php">
+                        <img src="../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    
+    <?php
+if(isset($_SESSION["username"])) {   
+    echo '<li class="nav-item dropdown">';
+    echo '<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">';
+    echo $_SESSION["username"];
+    echo '</a>';
+    echo '<ul class="dropdown-menu" aria-labelledby="userDropdown">';
+    echo '<li><a class="dropdown-item" href="dashboard.php">ไปยังหน้าแดชบอร์ด</a></li>';
+    echo '<li><hr class="dropdown-divider"></li>';
+    echo '<a href="../service/logout.php" style="color: black;">Logout</a>';
+    echo '</ul>';
+    echo '</li>';
+    echo '<button class="button" id="form-open" onclick="Logout()">Logout</button>'; 
+} else {
+    echo '<button class="button" id="form-open" onclick="redirectToLogin()">Login</button>';
+}
+?>
     </nav>
 
     <div class="container mt-5">

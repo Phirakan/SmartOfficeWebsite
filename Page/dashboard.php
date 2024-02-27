@@ -38,29 +38,26 @@
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                  <li class="nav-item">
-                  <a class="nav-link active" href="admin.php">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Products</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Solutions</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Contact</a>
-                  </li>
-              </ul>
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a class="nav-link" href="dashboard.html">
-                          <img src="../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
-                      </a>
-                  </li>
-  
-              </ul>
-          </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="admin.php">Manage Profile</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Room/manageroom.php">Manage Room</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Device/manageDevice.php">Manage Device</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.php">
+                        <img src="../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
       </div>
       <?php
 if(isset($_SESSION["username"])) {   
