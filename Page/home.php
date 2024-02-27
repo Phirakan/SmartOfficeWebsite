@@ -26,13 +26,14 @@ include('../config/connectdb.php');
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="admin.php">Profile</a>
-                   
+                    <a class="nav-link active" href="admin.php">Profile</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Room/manageroom.php">Add Room</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Room/addroom.php">Add Room</a>
                 </li>
-            
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

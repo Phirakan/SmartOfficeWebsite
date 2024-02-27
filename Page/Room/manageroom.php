@@ -7,10 +7,6 @@
         header('location: ../home.php');
         exit();
     }
-
-    $sql = "SELECT room.*,user.f_name FROM room LEFT JOIN user ON room.room_id = user.id";
-    $result = mysqli_query($conn, $sql);
-
     $username = $_SESSION['username'];
     $query = "SELECT role FROM user WHERE username = '$username' AND role = 1";
     $result = mysqli_query($conn, $query);
@@ -19,6 +15,11 @@
         header('location: ../home.php');
         exit();
     }
+
+    $sql = "SELECT room.*,user.f_name FROM room LEFT JOIN user ON room.room_id = user.id";
+    $result = mysqli_query($conn, $sql);
+
+
     
 ?>
 
