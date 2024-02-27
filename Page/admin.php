@@ -7,29 +7,22 @@
         header('location: home.php');
     }
 
+    $username = $_SESSION['username'];
+$query = "SELECT role FROM user WHERE username = '$username' AND role = 1";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    $_SESSION['error'] = "You don't have permission to access this page";
+    header('location: home.php');
+    exit();
+}
+
+
     $sql = "SELECT user.*, room.room_name 
             FROM user 
             LEFT JOIN room ON user.id = room.user_id ORDER BY user.id ASC";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
-        if ($row['role'] == 1) {
-            $username = $row['username'];
-            $f_name = $row['f_name'];
-            $l_name = $row['l_name'];
-            $email = $row['email'];
-            $tel = $row['tel'];
-            $img_path = $row['img'];
-            $room_name = $row['room_name'];
-        } else {
-            echo "You do not have permission to access this page";
-            exit();
-        }
-    } else {
-        header('location: home.php');
-        exit();
-    }
+
 
 ?>
 

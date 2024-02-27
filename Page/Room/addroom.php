@@ -2,16 +2,22 @@
 session_start();
 include('../../config/connectdb.php');
 
-
+// ตรวจสอบว่ามีการเข้าสู่ระบบหรือไม่ ถ้าไม่มีให้เปลี่ยนเส้นทางไปยังหน้า home.php
 if (!isset($_SESSION['username'])) {
     $_SESSION['error'] = "You must log in first";
     header('location: home.php');
     exit(); 
 }
-if ($_SESSION['role'] != 1) {
-   header('location: ../home.php');
+
+$username = $_SESSION['username'];
+$query = "SELECT role FROM user WHERE username = '$username' AND role = 1";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    $_SESSION['error'] = "You don't have permission to access this page";
+    header('location: ../home.php');
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>

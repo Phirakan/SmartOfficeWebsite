@@ -8,7 +8,14 @@ if (!isset($_SESSION['username'])) {
     header('location: ../home.php');
     exit();
 }
-
+$username = $_SESSION['username'];
+$query = "SELECT role FROM user WHERE username = '$username' AND role = 1";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    $_SESSION['error'] = "You don't have permission to access this page";
+    header('location: home.php');
+    exit();
+}
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Error: ID parameter is missing in the URL";
@@ -24,18 +31,13 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
-    if ($row['role'] == 1) {
-        $username = $row['username'];
-        $f_name = $row['f_name'];
-        $l_name = $row['l_name'];
-        $email = $row['email'];
-        $tel = $row['tel'];
-        $img_path = $row['img'];
-        $room_name = $row['room_name'];
-    } else {
-        echo "You do not have permission to access this page";
-        exit();
-    }
+    $username = $row['username'];
+    $f_name = $row['f_name'];
+    $l_name = $row['l_name'];
+    $email = $row['email'];
+    $tel = $row['tel'];
+    $img_path = $row['img'];
+    $room_name = $row['room_name']; 
 } else {
     echo "Error retrieving user data";
     exit();

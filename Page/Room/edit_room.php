@@ -7,10 +7,15 @@ if (!isset($_SESSION['username'])) {
     header('location: ../home.php');
     exit();
 }
-if ($_SESSION['role'] != 1) {
+$username = $_SESSION['username'];
+$query = "SELECT role FROM user WHERE username = '$username' AND role = 1";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    $_SESSION['error'] = "You don't have permission to access this page";
     header('location: ../home.php');
-     exit();
- }
+    exit();
+}
+
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     $_SESSION['error'] = "Room ID is missing in the URL";

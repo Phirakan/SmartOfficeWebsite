@@ -11,11 +11,15 @@
     $sql = "SELECT room.*,user.f_name FROM room LEFT JOIN user ON room.room_id = user.id";
     $result = mysqli_query($conn, $sql);
 
-    if ($_SESSION['role'] != 1) {
+    $username = $_SESSION['username'];
+    $query = "SELECT role FROM user WHERE username = '$username' AND role = 1";
+    $result = mysqli_query($conn, $query);
+    if (mysqli_num_rows($result) == 0) {
+        $_SESSION['error'] = "You don't have permission to access this page";
         header('location: ../home.php');
-         exit();
-     }
-
+        exit();
+    }
+    
 ?>
 
 <!doctype html>
