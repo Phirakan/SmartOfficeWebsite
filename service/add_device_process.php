@@ -18,21 +18,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($result) {
             $_SESSION['success'] = "Device added successfully";
-            header('location: ../Page/manageDevice.php');
+            header('location: ../Page/Device/manageDevice.php');
             exit();
         } else {
             $_SESSION['error'] = "Error adding device";
-            header('location: ../Page/add_device.php');
+            header('location: ../Page/Device/add_device.php');
             exit();
         }
     } else {
         $_SESSION['error'] = "Missing data";
-        header('location: ../Page/add_device.php');
+        header('location: ../Page/Device/add_device.php');
         exit();
     }
 } else {
     $_SESSION['error'] = "Invalid request";
-    header('location: ../Page/add_device.php');
+    header('location: ../Page/Device/add_device.php');
     exit();
 }
 ?>

@@ -54,8 +54,8 @@ if(isset($_SESSION["username"])) {
     echo $_SESSION["username"];
     echo '</a>';
     echo '<ul class="dropdown-menu" aria-labelledby="userDropdown">';
-    echo '<li><a class="dropdown-item" href="authentication/profile.php">แสดงโปรไฟล์</a></li>'; // Add your dropdown options here
-    echo '<li><a class="dropdown-item" href="authentication/dashboard.php">ไปยังหน้าแดชบอร์ด</a></li>';
+    echo '<li><a class="dropdown-item" href="profile.php">แสดงโปรไฟล์</a></li>'; // Add your dropdown options here
+    echo '<li><a class="dropdown-item" href="dashboard.php">ไปยังหน้าแดชบอร์ด</a></li>';
     echo '<li><hr class="dropdown-divider"></li>';
     echo '<a href="../service/logout.php" style="color: black;">Logout</a>';
     echo '</ul>';
@@ -150,7 +150,7 @@ if(isset($_SESSION["username"])) {
 
 <script>
 function redirectToLogin() {
-  window.location.href = "Login.php";
+  window.location.href = "authentication/Login.php";
 }
 </script>
 

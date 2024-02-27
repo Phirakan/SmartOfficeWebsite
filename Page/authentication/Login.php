@@ -1,5 +1,5 @@
 <?php
-include('../config/connectdb.php');
+include('../../config/connectdb.php');
 session_start(); // ตรวจสอบ session ทุกรายการ
 ?>
 
@@ -10,7 +10,7 @@ session_start(); // ตรวจสอบ session ทุกรายการ
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <title>Login&Register Page </title>
 </head>
 
@@ -18,7 +18,7 @@ session_start(); // ตรวจสอบ session ทุกรายการ
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="../service/register_db.php" method="post">
+            <form action="../../service/register_db.php" method="post">
                 <h1>Create Account</h1>
                   
                 <div class="social-icons">
@@ -40,7 +40,7 @@ session_start(); // ตรวจสอบ session ทุกรายการ
 
         
         <div class="form-container sign-in">
-            <form action="../service/login_db.php"  method="post">
+            <form action="../../service/login_db.php"  method="post">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -71,7 +71,7 @@ session_start(); // ตรวจสอบ session ทุกรายการ
         </div>
     </div>
 
-    <script src="../service/script.js"></script>
+    <script src="../../service/script.js"></script>
 </body>
 
 </html>
@@ -81,7 +81,7 @@ session_start(); // ตรวจสอบ session ทุกรายการ
 
 <script>
   function Logout() {
-            window.location.href = "../service/logout.php";
+            window.location.href = "../../service/logout.php";
         }
 </script>
 </body>

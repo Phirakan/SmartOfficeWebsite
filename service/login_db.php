@@ -27,7 +27,7 @@ if (isset($_POST['login_user'])) {
         } else {
             array_push($error, "Wrong username/password combination");
             $_SESSION['error'] = "Wrong username/password combination";
-            header("Location: ../Page/Login.php");
+            header("Location: ../Page/authentication/Login.php");
         }
     }
 }

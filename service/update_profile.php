@@ -16,7 +16,7 @@ $username = $_SESSION['username'];
 $user_id = $_GET['id'];
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     $_SESSION['error'] = "Error: ID parameter is missing in the URL";
-    header('location: ../Page/authentication/profile.php');
+    header('location: ../Page/profile.php');
     exit();
 }
 
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file);
         } else {
             $_SESSION['error'] = "File is not an image.";
-            header('location: ../Page/authentication/profile.php');
+            header('location: ../Page/profile.php');
             exit();
         }
     }
@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['error'] = "Error updating profile";
     }
 
-    header('location: ../Page/authentication/profile.php?id=' . $user_id);
+    header('location: ../Page/profile.php?id=' . $user_id);
     exit();
 } else {
     $_SESSION['error'] = "Invalid request";
-    header('location: ../Page/authentication/profile.php?id=' . $user_id);
+    header('location: ../Page/profile.php?id=' . $user_id);
     exit();
 }
 ?>

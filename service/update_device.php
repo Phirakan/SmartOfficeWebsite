@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($result) {
             $_SESSION['success'] = "Device updated successfully";
-            header('location: ../Page/manageDevice.php');
+            header('location: ../Page/Device/manageDevice.php');
             exit();
         } else {
             $_SESSION['error'] = "Error updating device";

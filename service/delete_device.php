@@ -19,6 +19,6 @@ if ($result) {
     $_SESSION['error'] = "Error deleting device";
 }
 
-header('location: manage_device.php');
+header('location: ../Page/Device/manageDevice.php');
 exit();
 ?>

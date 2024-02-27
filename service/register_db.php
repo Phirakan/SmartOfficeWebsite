@@ -47,7 +47,7 @@ if(isset($_POST['reg_user'])) {
         
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
-        header("Location: ../Page/authentication/admin.php");
+        header("Location: ../Page/home.php");
     }
 }
 
