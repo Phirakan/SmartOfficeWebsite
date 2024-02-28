@@ -53,7 +53,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="../dashboard.php">
-                        <img src="../../upload/dashboard.png" alt="Dashboard" class="dashboard-icon">
+                        <img src="../../asset/dashboard.png" alt="Dashboard" class="dashboard-icon">
                     </a>
                 </li>
 
