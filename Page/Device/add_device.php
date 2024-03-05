@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="container mt-5">
     <h2>Add Device</h2>
-    <form action="../service/add_device_process.php" method="post">
+    <form action="../../service/add_device_process.php" method="post">
         <div class="mb-3">
             <label for="room_id" class="form-label">Room ID</label>
             <input type="text" class="form-control" id="room_id" name="room_id">

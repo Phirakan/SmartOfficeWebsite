@@ -55,7 +55,7 @@ $row = mysqli_fetch_assoc($result);
 
 <div class="container mt-5">
     <h2>Edit Device</h2>
-    <form action="../service/update_device.php" method="post">
+    <form action="../../service/update_device.php" method="post">
         <input type="hidden" name="device_id" value="<?php echo $row['device_id']; ?>">
         <div class="mb-3">
             <label for="room_id" class="form-label">Room ID</label>
