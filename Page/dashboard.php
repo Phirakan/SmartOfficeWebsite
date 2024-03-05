@@ -28,6 +28,7 @@ $current_room = isset($room_row['room_name']) ? $room_row['room_name'] : "N/A";
     <title>Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="../asset/logo2.png" type="image/x-icon" />
     <link rel="stylesheet" href="../css/home.css">
 </head>
 

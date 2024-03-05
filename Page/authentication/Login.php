@@ -10,8 +10,9 @@ session_start(); // ตรวจสอบ session ทุกรายการ
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="../../asset/logo2.png" type="image/x-icon" />
     <link rel="stylesheet" href="../../css/style.css">
-    <title>Login&Register Page </title>
+    <title>Login & Register </title>
 </head>
 
 <body>
@@ -60,12 +61,12 @@ session_start(); // ตรวจสอบ session ทุกรายการ
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
+                    <h1>Hello, Friend! Welcome to Your smart Office Website</h1>
                     <p>Enter your personal details to use all of site features</p>
                     <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend! Welcome to Your smart Office Website</h1>
+                    <h1>Welcome Back!</h1>
                     <p>Register with your personal details to use all of site features</p>
                     <button class="hidden" id="register">Sign Up</button>
                 </div>
