@@ -105,7 +105,7 @@ $current_room = isset($room_row['room_name']) ? $room_row['room_name'] : "N/A";
                 const carbonValue = data.carbon;
 
                 document.getElementById('carbonValue').innerText += ' ' + carbonValue.toFixed(1);
-                
+
 
                 // Create Chart
                 new Chart("myChart", {
@@ -114,7 +114,7 @@ $current_room = isset($room_row['room_name']) ? $room_row['room_name'] : "N/A";
                         labels: dateValue,
                         datasets: [{
                             fill: false,
-                            lineTension: 0.3,
+                            lineTension: 0.1,
                             backgroundColor: "rgba(0,0,255,1.0)",
                             borderColor: "rgba(0,0,255,0.1)",
                             data: wattValue
@@ -122,14 +122,23 @@ $current_room = isset($room_row['room_name']) ? $room_row['room_name'] : "N/A";
                     },
                     options: {
                         legend: {
-
                             display: false
                         },
                         scales: {
-                            yAxes: [{
+                            xAxes: [{ 
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Date' 
+                                }
+                            }],
+                            yAxes: [{ 
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Power Consumption (Watt)' 
+                                },
                                 ticks: {
                                     min: Math.min(0),
-                                    max: Math.max(...wattValue)
+                                    max: Math.max(50000)
                                 }
                             }]
                         }
