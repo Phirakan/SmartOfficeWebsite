@@ -1,7 +1,20 @@
 <?php
 include('../config/connectdb.php');
+session_start();
 // $room_id = $_SESSION['room_id'];
-$room_id = 1;
+$username = $_SESSION['username'];
+
+// คำถาม SQL เพื่อดึงข้อมูล room_id ของผู้ใช้ที่เป็นเจ้าของห้อง
+$sql = "SELECT room_id FROM room WHERE user_id = (SELECT id FROM user WHERE username = '$username')";
+$result = $conn->query($sql);
+
+// ตรวจสอบว่ามีผลลัพธ์หรือไม่และกำหนดค่า $room_id ตามผลลัพธ์
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $room_id = $row['room_id'];
+} else {
+    $room_id = null;
+}
 $carbon_intensity_factor = 0.5;
 
 // Initialize array to store room data
