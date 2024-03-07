@@ -1,35 +1,39 @@
 <?php
-// เชื่อมต่อฐานข้อมูล
-$servername = '68.168.213.74';
-$username = 'mosuuuut_green_office';
-$password = '0952616334_';
-$database = 'mosuuuut_green_office';
 
-$conn = new mysqli($servername, $username, $password, $database);
+$servername = "68.168.213.74";
+$username = "mosuuuut_green_office"; 
+$password = "0952616334_"; 
+$dbname = "mosuuuut_green_office";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-
-// เช็คการเชื่อมต่อ
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// เลือกฐานข้อมูล
-$sql_select_db = "USE $database";
-if ($conn->query($sql_select_db) === TRUE) {
-    echo "Database selected successfully";
-} else {
-    echo "Error selecting database: " . $conn->error;
-}
+$state = $_POST['state'];
+$device_id = $_POST['device_id'];
 
-// เพิ่มข้อมูลลงในตาราง power_usage
-$sql = "INSERT INTO power_usage (datetime_start, datetime_stop) VALUES (NOW(), NOW() + INTERVAL 5 MINUTE)";
+date_default_timezone_set('Asia/Bangkok');
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record added successfully";
+if ($state == 0) {
+    
+    $start_time = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO power_usage (device_id, datetime_start) VALUES ('$device_id', '$start_time')";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    
+    $end_time = date('Y-m-d H:i:s');
+    $sql = "UPDATE power_usage SET datetime_stop='$end_time' WHERE device_id='$device_id' AND datetime_stop IS NULL";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
 }
 
 $conn->close();
-
 ?>
