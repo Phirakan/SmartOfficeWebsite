@@ -4,9 +4,10 @@ include('../config/connectdb.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ตรวจสอบว่ามีการส่งข้อมูลมาจากฟอร์มหรือไม่
-    if (isset($_POST['room_id']) && isset($_POST['watt']) && isset($_POST['ip_sensor'])) {
+    if (isset($_POST['room_id']) && isset($_POST['watt']) && isset($_POST['ip_sensor']) && isset($_POST['device_name'])) {
         // รับค่าจากฟอร์ม
         $room_id = $_POST['room_id'];
+        $device_name = $_POST['device_name'];
         $watt = $_POST['watt'];
         $ip_sensor = $_POST['ip_sensor'];
 
