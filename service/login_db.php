@@ -22,11 +22,11 @@ if (isset($_POST['login_user'])) {
         
         if (mysqli_num_rows($result) == 1) {
             $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
+            $_SESSION['success'] = "";
             header("Location: ../Page/home.php");
         } else {
-            array_push($error, "Wrong username/password combination");
-            $_SESSION['error'] = "Wrong username/password combination";
+            array_push($error, "");
+            $_SESSION['error'] = "";
             header("Location: ../Page/authentication/Login.php");
         }
     }

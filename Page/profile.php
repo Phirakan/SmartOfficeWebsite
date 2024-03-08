@@ -55,7 +55,7 @@ if (mysqli_num_rows($result) == 1) {
     <link rel="icon" href="../asset/logo2.png" type="image/x-icon" />
     <link href="../css/profile.css" rel="stylesheet">
 
-    <title><?php echo $_SESSION['username']; ?> Profile</title>
+    
 </head>
 
 <body>
@@ -108,7 +108,7 @@ if(isset($_SESSION["username"])) {
 ?>
 </nav>
 
-    <h1><?php echo $_SESSION['username']; ?> Profile</h1>
+    
     <div class="container">
         <?php if (isset($img_path) && !empty($img_path)) : ?>
             <img src="<?php echo $img_path; ?>" alt="User Image" width="400">
