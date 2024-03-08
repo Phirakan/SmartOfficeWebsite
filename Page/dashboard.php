@@ -139,7 +139,7 @@ $current_room = isset($room_row['room_name']) ? $room_row['room_name'] : "N/A";
                                 },
                                 ticks: {
                                     min: Math.min(0),
-                                    max: Math.max(50000)
+                                    max: Math.max(30000)
                                 }
                             }]
                         }

@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ตรวจสอบความถูกต้องของข้อมูล
 
         // เพิ่มข้อมูลใหม่ลงในฐานข้อมูล
-        $insert_query = "INSERT INTO device (room_id, watt, ip_sensor) VALUES ('$room_id', '$watt', '$ip_sensor')";
+        $insert_query = "INSERT INTO device (room_id, device_name, watt, ip_sensor ) VALUES ('$room_id','$device_name', '$watt', '$ip_sensor')";
         $result = mysqli_query($conn, $insert_query);
 
         if ($result) {
