@@ -96,6 +96,7 @@ if(isset($_SESSION["username"])) {
                     <th scope="col">username</th>
                     <th scope="col">ดูข้อมูล</th>
                     <th scope="col">แก้ไขข้อมูล</th>
+                    <th scope="col">ลบผู้ใช้</th>
                 </tr>
             </thead>
             <tbody>
@@ -107,7 +108,9 @@ if(isset($_SESSION["username"])) {
                     echo "<td>" . $row['f_name'] . "</td>";
                     echo "<td>" . $row['username'] . "</td>";
                     echo "<td><a href='profile.php?id=" . $row['id'] . "' class='btn btn-primary btn-menu'>แสดงข้อมูล</a></td>";
-                    echo "<td><a href='edit_profile.php?id=" . $row['id'] . "' class='btn btn-danger btn-menu'>แก้ไขข้อมูล</a></td>";
+                    echo "<td><a href='edit_profile.php?id=" . $row['id'] . "' class='btn btn-warning btn-menu'>แก้ไขข้อมูล</a></td>";
+                    echo "<td><a href='../service/remove_user.php?id=" . $row['id'] ."' class='btn btn-danger btn-menu' onclick='return confirmDelete();'>ลบผู้ใช้</a></td>
+                    ";
                     echo "</tr>";
                 }
                 ?>
@@ -121,5 +124,10 @@ if(isset($_SESSION["username"])) {
             window.location.href = "../service/logout.php";
         }
     </script>
+    <script>
+function confirmDelete() {
+    return confirm("Are you sure you want to delete this device?");
+}
+</script>
 </body>
 </html>
